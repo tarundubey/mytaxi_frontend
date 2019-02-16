@@ -35,17 +35,18 @@ export class DriverDashboardComponent{
       this.driver_id = params['id'];
     });
     // this.loadPendingRides();
-  this.loadPendingRides();
-  this.loadCompletedRides();
-  this.loadOngoingRides();
+ this.loadAll();
   }
-
+  loadAll(){
+    this.loadPendingRides();
+    this.loadCompletedRides();
+    this.loadOngoingRides();
+  }
   loadPendingRides(){
     let payload={'status':'pending'};
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.pending_rides = res;
       console.log(this.pending_rides);
-      // console.log(this.assessment_response.assessment_list)
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
     });
@@ -55,7 +56,6 @@ export class DriverDashboardComponent{
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.completed_rides = res;
       console.log(this.completed_rides);
-      // console.log(this.assessment_response.assessment_list)
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
     });
@@ -65,7 +65,6 @@ export class DriverDashboardComponent{
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.ongoing_rides = res;
       console.log(this.ongoing_rides);
-      // console.log(this.assessment_response.assessment_list)
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
     });
@@ -76,13 +75,14 @@ export class DriverDashboardComponent{
     this.driverDashboardService.acceptRide(payload,request_id).subscribe(res => {
       this.accept_response = res;
       console.log(this.accept_response);
+      this.loadAll()
       setTimeout(() => {
         this.finishRide(request_id);
       }, 100);
-      // console.log(this.assessment_response.assessment_list)
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
       setTimeout(() => {
+        this.loadAll()
         this.finishRide(request_id);
       }, 300000);
     });
@@ -92,9 +92,12 @@ export class DriverDashboardComponent{
     this.driverDashboardService.finishRide(payload,request_id).subscribe(res => {
       this.finished_response = res;
       console.log(this.finished_response);
-      // console.log(this.assessment_response.assessment_list)
+      this.loadAll()
+
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
+      this.loadAll()
+
     });
   }
   requestRide(){
