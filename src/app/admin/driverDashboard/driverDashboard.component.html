@@ -23,7 +23,7 @@
           </ngx-datatable-column>
           <ngx-datatable-column name="Requested On" prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
-              {{row.created_at}}
+              {{row.created_at+' minutes ago'}}
             </ng-template>
           </ngx-datatable-column>
           <ngx-datatable-column name="Take Exam" prop="examination_id">
@@ -57,7 +57,7 @@
           </ngx-datatable-column>
           <ngx-datatable-column name="Requested On" prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
-              {{row.created_at}}
+              {{row.created_at+' minutes ago'}}
             </ng-template>
           </ngx-datatable-column>
 
@@ -87,7 +87,7 @@
           </ngx-datatable-column>
           <ngx-datatable-column name="Requested On" prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
-              {{row.created_at}}
+              {{row.created_at+' minutes ago'}}
             </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>
