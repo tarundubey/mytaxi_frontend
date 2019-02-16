@@ -37,12 +37,14 @@ export class DriverDashboardComponent{
     // this.loadPendingRides();
  this.loadAll();
   }
-  loadAll(){
-    this.loadPendingRides();
-    this.loadCompletedRides();
-    this.loadOngoingRides();
+  async loadAll(){
+   await this.loadPendingRides().then(async ()=>{
+      await this.loadCompletedRides().then(async ()=>{
+        await this.loadOngoingRides().then();
+      });
+    })
   }
-  loadPendingRides(){
+  async loadPendingRides(){
     let payload={'status':'pending'};
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.pending_rides = res;
@@ -51,7 +53,7 @@ export class DriverDashboardComponent{
       this.errorHandler.handleError(error, this.toastr);
     });
   }
-  loadCompletedRides(){
+  async loadCompletedRides(){
     let payload={'status':'finished'};
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.completed_rides = res;
@@ -60,7 +62,7 @@ export class DriverDashboardComponent{
       this.errorHandler.handleError(error, this.toastr);
     });
   }
-  loadOngoingRides(){
+ async loadOngoingRides(){
     let payload={'status':'ongoing'};
     this.driverDashboardService.getAvailableRides(payload,this.driver_id).subscribe(res => {
       this.ongoing_rides = res;
