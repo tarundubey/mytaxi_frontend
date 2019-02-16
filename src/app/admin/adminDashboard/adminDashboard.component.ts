@@ -29,7 +29,6 @@ export class AdminDashboardComponent{
     this.adminDashboardService.view_dashboard(payload).subscribe(res => {
       this.dashboard_response = res;
       console.log(this.dashboard_response);
-      // console.log(this.assessment_response.assessment_list)
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
     });
