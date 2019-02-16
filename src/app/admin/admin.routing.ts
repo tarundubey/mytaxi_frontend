@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 
 import {AdminDashboardComponent} from './adminDashboard/adminDashboard.component';
+import {CustomerDashboardComponent} from './customerDashboard/customerDashboard.component';
+import {DriverDashboardService} from '../services/driverDashboard.service';
+import {DriverDashboardComponent} from './driverDashboard/driverDashboard.component';
 
 
 export const AdminRoutes: Routes = [
@@ -17,5 +20,19 @@ export const AdminRoutes: Routes = [
           heading: 'Dashboard'
         }
       },
+      {
+        path: 'customerDashboard',
+        component: CustomerDashboardComponent,
+        data: {
+          heading: 'Book a ride'
+        }
+      },
+      {
+        path: 'driverDashboard',
+        component: DriverDashboardComponent,
+        data: {
+          heading: 'Dashboard'
+        }
+      }
     ]
 }];

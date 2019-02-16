@@ -13,6 +13,10 @@ import {ScreenCheckGuard} from '../guards/screen_check.guard';
 import {EditorModule} from '@tinymce/tinymce-angular';
 import {AdminDashboardComponent} from './adminDashboard/adminDashboard.component';
 import {AdminDashboardService} from '../services/adminDashboard.service';
+import {CustomerDashboardComponent} from './customerDashboard/customerDashboard.component';
+import {CustomerDashboardService} from '../services/customerDashboard.service';
+import {DriverDashboardComponent} from './driverDashboard/driverDashboard.component';
+import {DriverDashboardService} from '../services/driverDashboard.service';
 
 @NgModule({
   imports: [
@@ -26,14 +30,18 @@ import {AdminDashboardService} from '../services/adminDashboard.service';
     EditorModule
   ],
   declarations: [
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    CustomerDashboardComponent,
+    DriverDashboardComponent
   ],
   providers: [
     FormatService,
     UserService,
     DatePipe,
     ScreenCheckGuard,
-    AdminDashboardService
+    AdminDashboardService,
+    CustomerDashboardService,
+    DriverDashboardService
   ]
 })
 

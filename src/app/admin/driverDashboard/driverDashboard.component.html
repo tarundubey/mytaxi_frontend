@@ -1,0 +1,99 @@
+<div >
+  <ngb-tabset>
+    <ngb-tab title="Pending"  class="col-lg-4" (click)="requestRide()">
+      <ng-template ngbTabContent>
+        <ngx-datatable
+          class="bootstrap"
+          [columnMode]="'force'"
+          [headerHeight]="30"
+          [rowHeight]="'auto'"
+          [rows]='pending_rides'>
+          <ngx-datatable-column name="Request Id" prop="request_id" >
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.request_id}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Customer Id" prop="requested_by">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.requested_by}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Requested On" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.created_at}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Take Exam" prop="examination_id">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              <div >
+                <button class="btn btn-primary bg-red btn-sm" (click)="acceptRide(row.request_id)" >Accept</button>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Ongoing">
+      <ng-template ngbTabContent>
+        <ngx-datatable
+          class="bootstrap"
+          [columnMode]="'force'"
+          [headerHeight]="30"
+          [rowHeight]="'auto'"
+          [rows]='ongoing_rides'>
+          <ngx-datatable-column name="Request Id" prop="request_id" >
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.request_id}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Customer Id" prop="requested_by">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.requested_by}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Requested On" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.created_at}}
+            </ng-template>
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+
+
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Completed">
+      <ng-template ngbTabContent>
+        <ngx-datatable
+          class="bootstrap"
+          [columnMode]="'force'"
+          [headerHeight]="30"
+          [rowHeight]="'auto'"
+          [rows]='completed_rides'>
+          <ngx-datatable-column name="Request Id" prop="request_id" >
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.request_id}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Customer Id" prop="requested_by">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.requested_by}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Requested On" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.created_at}}
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+</div>
+
+
+
