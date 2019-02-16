@@ -21,7 +21,7 @@
               {{row.requested_by}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Requested On" prop="create_at">
+          <ngx-datatable-column name="Requested" prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
               {{row.created_at+' minutes ago'}}
             </ng-template>
@@ -55,9 +55,14 @@
               {{row.requested_by}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Requested On" prop="create_at">
+          <ngx-datatable-column name="Requested " prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
               {{row.created_at+' minutes ago'}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Picked up" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.picked_up_at+' minutes ago'}}
             </ng-template>
           </ngx-datatable-column>
 
@@ -88,6 +93,18 @@
           <ngx-datatable-column name="Requested On" prop="create_at">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
               {{row.created_at+' minutes ago'}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Picked up" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.picked_up_at+' minutes ago'}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Completed" prop="create_at">
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+              {{row.completed_at+' minutes ago'}}
             </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>
