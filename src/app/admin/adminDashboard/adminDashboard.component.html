@@ -1,0 +1,45 @@
+<ngx-datatable
+  class="bootstrap"
+  [columnMode]="'force'"
+  [headerHeight]="30"
+  [rowHeight]="'auto'"
+  [rows]='dashboard_response'>
+
+
+  <ngx-datatable-column name="Request Id" prop="request_id" >
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+      {{row.request_id}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Customer Id" prop="requested_by">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+    {{row.requested_by}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Status" prop="status">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+      {{row.status}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Driver id" prop="accepted_by">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+      {{row.accepted_by!=null?row.accepted_by:'N/A'}}
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <ngx-datatable-column name="Requested On" prop="create_at">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+      {{row.created_at}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Completed On" prop="create_at">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+      {{row.completed_at}}
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
+
