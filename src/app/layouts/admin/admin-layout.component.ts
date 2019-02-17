@@ -87,7 +87,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   }
 
   setTitle( newTitle: string) {
-    this.titleService.setTitle( 'OEMS | ' + newTitle );
+    this.titleService.setTitle( 'MyTaxi | ' );
   }
 
   toogleSidebar(): void {

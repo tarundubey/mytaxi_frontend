@@ -78,7 +78,7 @@ export class UtilService {
     return apiDomain;
   }
   getTaxiDomain(){
-    const apiDomain = 'http://localhost:8000';
+    const apiDomain = isDevMode()?'http://localhost:8000':'http://ec2-13-233-214-13.ap-south-1.compute.amazonaws.com:8000';
     return apiDomain;
   }
 
