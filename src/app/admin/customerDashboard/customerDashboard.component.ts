@@ -30,8 +30,8 @@ export class CustomerDashboardComponent{
     else {
       let payload = {"requested_by": this.customer_id}
       this.customerDashboardService.request_ride(payload).subscribe(res => {
-        // this.errorHandler.success(res.message, this.toastr);
-        alert('sucess')
+         this.errorHandler.success(res.message, this.toastr);
+        // alert('sucess')
         // console.log(this.assessment_response.assessment_list)
       }, error => {
         this.errorHandler.handleError(error, this.toastr);
