@@ -3,5 +3,13 @@
   <div class="col-8">
     <input class="form-control" type="number" [(ngModel)]="customer_id" id="customer_id" />
   </div>
+  <label for="latitude" class="col-4 col-form-label">Latitude</label>
+  <div class="col-8">
+    <input class="form-control" type="number" [(ngModel)]="latitude" id="latitude" />
+  </div>
+  <label for="longitude" class="col-4 col-form-label">Longitude</label>
+  <div class="col-8">
+    <input class="form-control" type="number" [(ngModel)]="longitude" id="longitude" />
+  </div>
 </div>
 <button type="button" class="btn btn-secondary" (click)="requestRide()">Book a ride</button>
