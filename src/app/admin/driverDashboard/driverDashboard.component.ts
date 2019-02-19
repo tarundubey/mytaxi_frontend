@@ -84,8 +84,8 @@ export class DriverDashboardComponent{
     }, error => {
       this.errorHandler.handleError(error, this.toastr);
       setTimeout(() => {
-        this.loadAll()
         this.finishRide(request_id);
+        this.loadAll();
       }, 300000);
     });
   }
