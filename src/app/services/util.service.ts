@@ -8,16 +8,15 @@ export class UtilService {
 
   }
 
-
   getToken() {
-    return 'JWT ' + localStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 
   getHeader(payload = null) {
     const httpOptions = {
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': this.getToken()
+        'Authorization': 'Bearer ' +this.getToken()
       })
     };
 

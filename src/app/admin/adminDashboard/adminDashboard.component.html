@@ -1,6 +1,5 @@
 
 <button type="button" class="btn btn-secondary" (click)="loadRequests()"> Refresh</button>
-
 <ngx-datatable
   class="bootstrap"
   [columnMode]="'force'"
@@ -33,7 +32,7 @@
     </ng-template>
   </ngx-datatable-column>
 
-
+  
   <ngx-datatable-column name="Requested" prop="create_at">
     <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
       {{row.created_at+' minutes ago'}}

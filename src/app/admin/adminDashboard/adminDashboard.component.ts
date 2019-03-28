@@ -11,10 +11,9 @@ import {AdminDashboardService} from '../../services/adminDashboard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './adminDashboard.component.html',
-  styleUrls: ['./adminDashboard.component.scss']
+  styleUrls: ['./adminDashboard.component.scss'], 
 })
 export class AdminDashboardComponent{
-
 
   dashboard_response = {  };
 

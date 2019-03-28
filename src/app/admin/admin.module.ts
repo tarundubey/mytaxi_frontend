@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {CommonModule, DatePipe} from '@angular/common';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {FormatService} from '../services/format.service';
@@ -17,7 +17,10 @@ import {CustomerDashboardComponent} from './customerDashboard/customerDashboard.
 import {CustomerDashboardService} from '../services/customerDashboard.service';
 import {DriverDashboardComponent} from './driverDashboard/driverDashboard.component';
 import {DriverDashboardService} from '../services/driverDashboard.service';
+import { AgmCoreModule } from '@agm/core';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
+declare var google: any;
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +30,15 @@ import {DriverDashboardService} from '../services/driverDashboard.service';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    EditorModule
+    EditorModule,
+    GooglePlaceModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC--D4GGjTs6H30zyMlkit7fWnHyJshv28'
+      /* apiKey is required, unless you are a 
+      premium customer, in which case you can 
+      use clientId 
+      */
+    })
   ],
   declarations: [
     AdminDashboardComponent,

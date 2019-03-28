@@ -1,15 +1,46 @@
-<div class="form-group row">
-  <label for="customer_id" class="col-4 col-form-label">Customer Id</label>
-  <div class="col-8">
-    <input class="form-control" type="number" [(ngModel)]="customer_id" id="customer_id" />
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC--D4GGjTs6H30zyMlkit7fWnHyJshv28&libraries=places&language=en"></script>
+
+<div>
+    <div>
+        <h1>Select Your location</h1>
+  <button (click)="findMe()" name="Find Me" >Find Me</button>
+        <agm-map 
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+          [zoomControl]="false"
+          >
+        
+          <agm-marker [latitude]="lat" [longitude]="lng">
+            </agm-marker> 
+          
+          <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+              [radius]="5000"
+              [fillColor]="'red'"
+              [circleDraggable]="true"
+              [editable]="true">
+          </agm-circle>
+        
+        </agm-map>
+    </div>>
+  <div class="form-group row">
+      
+    <label for="customer_id" class="col-4 col-form-label">Customer Id</label>
+    <div class="col-8">
+      <input class="form-control" type="number" [(ngModel)]="customer_id" id="customer_id" />
+    </div>
+    <label for="latitude" class="col-4 col-form-label">Latitude</label>
+    <div class="col-8">
+      <input class="form-control" type="number" [(ngModel)]="latitud" id="latitude" />
+    </div>
+    <label for="longitude" class="col-4 col-form-label">Longitude</label>
+    <div class="col-8">
+      <input class="form-control" type="number" [(ngModel)]="longitud" id="longitude" />
+    </div>
   </div>
-  <label for="latitude" class="col-4 col-form-label">Latitude</label>
-  <div class="col-8">
-    <input class="form-control" type="number" [(ngModel)]="latitude" id="latitude" />
-  </div>
-  <label for="longitude" class="col-4 col-form-label">Longitude</label>
-  <div class="col-8">
-    <input class="form-control" type="number" [(ngModel)]="longitude" id="longitude" />
-  </div>
+  <button type="button" class="btn btn-secondary" (click)="requestRide()">Book a ride</button>
+  
 </div>
-<button type="button" class="btn btn-secondary" (click)="requestRide()">Book a ride</button>
+

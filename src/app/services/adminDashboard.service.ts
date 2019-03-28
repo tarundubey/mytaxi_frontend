@@ -11,6 +11,7 @@ export class AdminDashboardService {
   constructor(private http : Http, private utilService : UtilService, private router : Router){
 
   }
+  
   view_dashboard(payload) {
     return this.http.post(this.utilService.getTaxiDomain() + '/api/dashboard/',payload,this.utilService.getHeader())
       .map(res => res.json());
