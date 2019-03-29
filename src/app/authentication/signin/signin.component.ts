@@ -43,9 +43,9 @@ export class SigninComponent implements OnInit {
     }, error => {
       try {
         console.log(error.json());
-        this.errorMessage = error.json().non_field_errors[0];
+        this.errorMessage = error.json()['message'];
       } catch (e) {
-        this.errorMessage = 'Network Problem';
+        this.errorMessage =  "Network Problem";
       }
     });
   }
